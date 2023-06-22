@@ -119,7 +119,7 @@ function initBrowserSync() {
       open: false,
       // https://www.browsersync.io/docs/options/#option-proxy
       proxy: {
-        target: 'django:8000',
+        target: '127.0.0.1:8000',
         proxyReq: [
           function (proxyReq, req) {
             // Assign proxy 'host' header same as current request at Browsersync server
@@ -145,7 +145,7 @@ function watchPaths() {
 const generateAssets = parallel(styles, scripts, vendorScripts, imgCompression);
 
 // Set up dev environment
-const dev = parallel(initBrowserSync, watchPaths);
+const dev = parallel(runServer, initBrowserSync, watchPaths);
 
 exports.default = series(generateAssets, dev);
 exports['generate-assets'] = generateAssets;
