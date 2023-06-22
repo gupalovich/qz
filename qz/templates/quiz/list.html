@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for category in categories %}
+        <ul>
+            <li>{{category.title}}</li>
+            <ol>
+                {% for quiz in category.quizzes.all %}
+                <li>{{quiz.title}}</li>
+                {% endfor %}
+            </ol>
+        </ul>
+    {% endfor %}
+{% endblock content %}

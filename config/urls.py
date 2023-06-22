@@ -13,7 +13,8 @@ urlpatterns = [
     # User management
     path("users/", include("qz.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
+    # App urls
+    path("quiz/", include("qz.quiz.urls", namespace="quiz")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
