@@ -6,7 +6,7 @@
             <li>{{category.title}}</li>
             <ol>
                 {% for quiz in category.quizzes.all %}
-                <li>{{quiz.title}}</li>
+                <li><a href="">{{quiz.title}}</a></li>
                 {% endfor %}
             </ol>
         </ul>
